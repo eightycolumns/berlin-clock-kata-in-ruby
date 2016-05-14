@@ -170,5 +170,10 @@ describe 'Berlin Clock' do
       @berlin_clock.set_time(0, 0, 0)
       expect(@berlin_clock.composite_row).to eq 'YOOOOOOOOOOOOOOOOOOOOOOO'
     end
+
+    it 'is ORRRRRRROYYRYYRYYRYYYYYY at 23:59:59' do
+      @berlin_clock.set_time(23, 59, 59)
+      expect(@berlin_clock.composite_row).to eq 'ORRRRRRROYYRYYRYYRYYYYYY'
+    end
   end
 end
