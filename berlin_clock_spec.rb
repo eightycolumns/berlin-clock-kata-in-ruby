@@ -72,5 +72,10 @@ describe 'Berlin Clock' do
       @berlin_clock.set_time(0, 54, 0)
       expect(@berlin_clock.five_minute_row).to eq 'YYRYYRYYRYO'
     end
+
+    it 'is YYRYYRYYRYY at minute 55' do
+      @berlin_clock.set_time(0, 55, 0)
+      expect(@berlin_clock.five_minute_row).to eq 'YYRYYRYYRYY'
+    end
   end
 end
