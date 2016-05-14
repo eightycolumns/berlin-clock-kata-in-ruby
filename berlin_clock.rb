@@ -36,4 +36,14 @@ class BerlinClock
 
     row
   end
+
+  def five_hour_row
+    row = ''
+
+    (@hour / 5).times { row += 'R' }
+
+    row += 'O' until row.length == 4
+
+    row
+  end
 end
