@@ -14,4 +14,16 @@ class BerlinClock
 
     row
   end
+
+  def five_minute_row
+    row = ''
+
+    (@minute / 5).times do
+      row += ((row.length + 1) % 3 == 0) ? 'R' : 'Y'
+    end
+
+    row += 'O' until row.length == 11
+
+    row
+  end
 end
