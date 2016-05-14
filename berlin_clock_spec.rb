@@ -164,4 +164,11 @@ describe 'Berlin Clock' do
       expect(@berlin_clock.seconds_lamp).to eq 'O'
     end
   end
+
+  describe 'composite row' do
+    it 'is YOOOOOOOOOOOOOOOOOOOOOOO at 00:00:00' do
+      @berlin_clock.set_time(0, 0, 0)
+      expect(@berlin_clock.composite_row).to eq 'YOOOOOOOOOOOOOOOOOOOOOOO'
+    end
+  end
 end

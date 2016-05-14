@@ -50,4 +50,12 @@ class BerlinClock
   def seconds_lamp
     (@second % 2 == 0) ? 'Y' : 'O'
   end
+
+  def composite_row
+    seconds_lamp +
+    five_hour_row +
+    one_hour_row +
+    five_minute_row +
+    one_minute_row
+  end
 end
