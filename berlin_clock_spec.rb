@@ -158,5 +158,10 @@ describe 'Berlin Clock' do
       @berlin_clock.set_time(0, 0, 0)
       expect(@berlin_clock.seconds_lamp).to eq 'Y'
     end
+
+    it 'is O at second 59' do
+      @berlin_clock.set_time(0, 0, 59)
+      expect(@berlin_clock.seconds_lamp).to eq 'O'
+    end
   end
 end
