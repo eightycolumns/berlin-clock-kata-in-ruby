@@ -20,5 +20,10 @@ describe 'Berlin Clock' do
       @berlin_clock.set_time(0, 10, 0)
       expect(@berlin_clock.one_minute_row).to eq 'OOOO'
     end
+
+    it 'is YOOO at minute 11' do
+      @berlin_clock.set_time(0, 11, 0)
+      expect(@berlin_clock.one_minute_row).to eq 'YOOO'
+    end
   end
 end
