@@ -89,5 +89,10 @@ describe 'Berlin Clock' do
       @berlin_clock.set_time(23, 0, 0)
       expect(@berlin_clock.one_hour_row).to eq 'RRRO'
     end
+
+    it 'is OOOO at hour 10' do
+      @berlin_clock.set_time(10, 0, 0)
+      expect(@berlin_clock.one_hour_row).to eq 'OOOO'
+    end
   end
 end
