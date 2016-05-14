@@ -152,4 +152,11 @@ describe 'Berlin Clock' do
       expect(@berlin_clock.five_hour_row).to eq 'RRRR'
     end
   end
+
+  describe 'seconds lamp' do
+    it 'is Y at second 0' do
+      @berlin_clock.set_time(0, 0, 0)
+      expect(@berlin_clock.seconds_lamp).to eq 'Y'
+    end
+  end
 end

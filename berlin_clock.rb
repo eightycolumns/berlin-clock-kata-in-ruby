@@ -46,4 +46,8 @@ class BerlinClock
 
     row
   end
+
+  def seconds_lamp
+    (@second % 2 == 0) ? 'Y' : 'O'
+  end
 end
