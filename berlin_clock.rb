@@ -5,50 +5,29 @@ class BerlinClock
     @second = second
   end
 
-  def one_minute_row
-    row = ''
-
-    (@minute % 5).times { row += 'Y' }
-
-    row += 'O' until row.length == 4
-
-    row
-  end
-
-  def five_minute_row
-    row = ''
-
-    (@minute / 5).times do
-      row += ((row.length + 1) % 3 == 0) ? 'R' : 'Y'
-    end
-
-    row += 'O' until row.length == 11
-
-    row
-  end
-
-  def one_hour_row
-    row = ''
-
-    (@hour % 5).times { row += 'R' }
-
-    row += 'O' until row.length == 4
-
-    row
+  def seconds_lamp
+    (@second % 2 == 0) ? '1' : '0'
   end
 
   def five_hour_row
-    row = ''
-
-    (@hour / 5).times { row += 'R' }
-
-    row += 'O' until row.length == 4
-
-    row
+    row(4, @hour / 5)
   end
 
-  def seconds_lamp
-    (@second % 2 == 0) ? 'Y' : 'O'
+  def one_hour_row
+    row(4, @hour % 5)
+  end
+
+  def five_minute_row
+    row(11, @minute / 5)
+  end
+
+  def one_minute_row
+    row(4, @minute % 5)
+  end
+
+  def row(lights, lights_on)
+    lights_off = lights - lights_on
+    '1' * lights_on + '0' * lights_off
   end
 
   def composite_row
@@ -58,4 +37,15 @@ class BerlinClock
     five_minute_row +
     one_minute_row
   end
+
+  public(
+    :seconds_lamp,
+    :five_hour_row,
+    :one_hour_row,
+    :five_minute_row,
+    :one_minute_row,
+    :composite_row
+  )
+
+  private :row
 end

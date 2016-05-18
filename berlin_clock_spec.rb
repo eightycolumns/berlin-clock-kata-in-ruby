@@ -5,175 +5,175 @@ describe 'Berlin Clock' do
     @berlin_clock = BerlinClock.new
   end
 
-  describe 'one-minute row' do
-    it 'is OOOO at minute 0' do
+  describe 'seconds lamp' do
+    it 'is 1 at 00:00:00' do
       @berlin_clock.set_time(0, 0, 0)
-      expect(@berlin_clock.one_minute_row).to eq 'OOOO'
+      expect(@berlin_clock.seconds_lamp).to eq '1'
     end
 
-    it 'is YYYY at minute 59' do
-      @berlin_clock.set_time(0, 59, 0)
-      expect(@berlin_clock.one_minute_row).to eq 'YYYY'
-    end
-
-    it 'is OOOO at minute 10' do
-      @berlin_clock.set_time(0, 10, 0)
-      expect(@berlin_clock.one_minute_row).to eq 'OOOO'
-    end
-
-    it 'is YOOO at minute 11' do
-      @berlin_clock.set_time(0, 11, 0)
-      expect(@berlin_clock.one_minute_row).to eq 'YOOO'
-    end
-
-    it 'is YYOO at minute 12' do
-      @berlin_clock.set_time(0, 12, 0)
-      expect(@berlin_clock.one_minute_row).to eq 'YYOO'
-    end
-
-    it 'is YYYO at minute 13' do
-      @berlin_clock.set_time(0, 13, 0)
-      expect(@berlin_clock.one_minute_row).to eq 'YYYO'
-    end
-
-    it 'is YYYY at minute 14' do
-      @berlin_clock.set_time(0, 14, 0)
-      expect(@berlin_clock.one_minute_row).to eq 'YYYY'
-    end
-  end
-
-  describe 'five-minute row' do
-    it 'is OOOOOOOOOOO at minute 0' do
-      @berlin_clock.set_time(0, 0, 0)
-      expect(@berlin_clock.five_minute_row).to eq 'OOOOOOOOOOO'
-    end
-
-    it 'is YYRYYRYYRYY at minute 59' do
-      @berlin_clock.set_time(0, 59, 0)
-      expect(@berlin_clock.five_minute_row).to eq 'YYRYYRYYRYY'
-    end
-
-    it 'is OOOOOOOOOOO at minute 4' do
-      @berlin_clock.set_time(0, 4, 0)
-      expect(@berlin_clock.five_minute_row).to eq 'OOOOOOOOOOO'
-    end
-
-    it 'is YOOOOOOOOOO at minute 5' do
-      @berlin_clock.set_time(0, 5, 0)
-      expect(@berlin_clock.five_minute_row).to eq 'YOOOOOOOOOO'
-    end
-
-    it 'is YYRYYROOOOO at minute 30' do
-      @berlin_clock.set_time(0, 30, 0)
-      expect(@berlin_clock.five_minute_row).to eq 'YYRYYROOOOO'
-    end
-
-    it 'is YYRYYRYYRYO at minute 54' do
-      @berlin_clock.set_time(0, 54, 0)
-      expect(@berlin_clock.five_minute_row).to eq 'YYRYYRYYRYO'
-    end
-
-    it 'is YYRYYRYYRYY at minute 55' do
-      @berlin_clock.set_time(0, 55, 0)
-      expect(@berlin_clock.five_minute_row).to eq 'YYRYYRYYRYY'
-    end
-  end
-
-  describe 'one-hour row' do
-    it 'is OOOO at hour 0' do
-      @berlin_clock.set_time(0, 0, 0)
-      expect(@berlin_clock.one_hour_row).to eq 'OOOO'
-    end
-
-    it 'is RRRO at hour 23' do
-      @berlin_clock.set_time(23, 0, 0)
-      expect(@berlin_clock.one_hour_row).to eq 'RRRO'
-    end
-
-    it 'is OOOO at hour 10' do
-      @berlin_clock.set_time(10, 0, 0)
-      expect(@berlin_clock.one_hour_row).to eq 'OOOO'
-    end
-
-    it 'is ROOO at hour 11' do
-      @berlin_clock.set_time(11, 0, 0)
-      expect(@berlin_clock.one_hour_row).to eq 'ROOO'
-    end
-
-    it 'is RROO at hour 12' do
-      @berlin_clock.set_time(12, 0, 0)
-      expect(@berlin_clock.one_hour_row).to eq 'RROO'
-    end
-
-    it 'is RRRO at hour 13' do
-      @berlin_clock.set_time(13, 0, 0)
-      expect(@berlin_clock.one_hour_row).to eq 'RRRO'
-    end
-
-    it 'is RRRR at hour 14' do
-      @berlin_clock.set_time(14, 0, 0)
-      expect(@berlin_clock.one_hour_row).to eq 'RRRR'
+    it 'is 0 at 00:00:59' do
+      @berlin_clock.set_time(0, 0, 59)
+      expect(@berlin_clock.seconds_lamp).to eq '0'
     end
   end
 
   describe 'five-hour row' do
-    it 'is OOOO at hour 0' do
+    it 'is 0000 at 00:00:00' do
       @berlin_clock.set_time(0, 0, 0)
-      expect(@berlin_clock.five_hour_row).to eq 'OOOO'
+      expect(@berlin_clock.five_hour_row).to eq '0000'
     end
 
-    it 'is RRRR at hour 23' do
+    it 'is 1111 at 23:00:00' do
       @berlin_clock.set_time(23, 0, 0)
-      expect(@berlin_clock.five_hour_row).to eq 'RRRR'
+      expect(@berlin_clock.five_hour_row).to eq '1111'
     end
 
-    it 'is OOOO at hour 4' do
+    it 'is 0000 at 04:00:00' do
       @berlin_clock.set_time(4, 0, 0)
-      expect(@berlin_clock.five_hour_row).to eq 'OOOO'
+      expect(@berlin_clock.five_hour_row).to eq '0000'
     end
 
-    it 'is ROOO at hour 5' do
+    it 'is 1000 at 05:00:00' do
       @berlin_clock.set_time(5, 0, 0)
-      expect(@berlin_clock.five_hour_row).to eq 'ROOO'
+      expect(@berlin_clock.five_hour_row).to eq '1000'
     end
 
-    it 'is RROO at hour 12' do
+    it 'is 1100 at 12:00:00' do
       @berlin_clock.set_time(12, 0, 0)
-      expect(@berlin_clock.five_hour_row).to eq 'RROO'
+      expect(@berlin_clock.five_hour_row).to eq '1100'
     end
 
-    it 'is RRRO at hour 19' do
+    it 'is 1110 at 19:00:00' do
       @berlin_clock.set_time(19, 0, 0)
-      expect(@berlin_clock.five_hour_row).to eq 'RRRO'
+      expect(@berlin_clock.five_hour_row).to eq '1110'
     end
 
-    it 'is RRRR at hour 20' do
+    it 'is 1111 at 20:00:00' do
       @berlin_clock.set_time(20, 0, 0)
-      expect(@berlin_clock.five_hour_row).to eq 'RRRR'
+      expect(@berlin_clock.five_hour_row).to eq '1111'
     end
   end
 
-  describe 'seconds lamp' do
-    it 'is Y at second 0' do
+  describe 'one-hour row' do
+    it 'is 0000 at 00:00:00' do
       @berlin_clock.set_time(0, 0, 0)
-      expect(@berlin_clock.seconds_lamp).to eq 'Y'
+      expect(@berlin_clock.one_hour_row).to eq '0000'
     end
 
-    it 'is O at second 59' do
-      @berlin_clock.set_time(0, 0, 59)
-      expect(@berlin_clock.seconds_lamp).to eq 'O'
+    it 'is 1110 at 23:00:00' do
+      @berlin_clock.set_time(23, 0, 0)
+      expect(@berlin_clock.one_hour_row).to eq '1110'
+    end
+
+    it 'is 0000 at 10:00:00' do
+      @berlin_clock.set_time(10, 0, 0)
+      expect(@berlin_clock.one_hour_row).to eq '0000'
+    end
+
+    it 'is 1000 at 11:00:00' do
+      @berlin_clock.set_time(11, 0, 0)
+      expect(@berlin_clock.one_hour_row).to eq '1000'
+    end
+
+    it 'is 1100 at 12:00:00' do
+      @berlin_clock.set_time(12, 0, 0)
+      expect(@berlin_clock.one_hour_row).to eq '1100'
+    end
+
+    it 'is 1110 at 13:00:00' do
+      @berlin_clock.set_time(13, 0, 0)
+      expect(@berlin_clock.one_hour_row).to eq '1110'
+    end
+
+    it 'is 1111 at 14:00:00' do
+      @berlin_clock.set_time(14, 0, 0)
+      expect(@berlin_clock.one_hour_row).to eq '1111'
+    end
+  end
+
+  describe 'five-minute row' do
+    it 'is 00000000000 at 00:00:00' do
+      @berlin_clock.set_time(0, 0, 0)
+      expect(@berlin_clock.five_minute_row).to eq '00000000000'
+    end
+
+    it 'is 11111111111 at 00:59:00' do
+      @berlin_clock.set_time(0, 59, 0)
+      expect(@berlin_clock.five_minute_row).to eq '11111111111'
+    end
+
+    it 'is 00000000000 at 00:04:00' do
+      @berlin_clock.set_time(0, 4, 0)
+      expect(@berlin_clock.five_minute_row).to eq '00000000000'
+    end
+
+    it 'is 10000000000 at 00:05:00' do
+      @berlin_clock.set_time(0, 5, 0)
+      expect(@berlin_clock.five_minute_row).to eq '10000000000'
+    end
+
+    it 'is 11111100000 at 00:30:00' do
+      @berlin_clock.set_time(0, 30, 0)
+      expect(@berlin_clock.five_minute_row).to eq '11111100000'
+    end
+
+    it 'is 11111111110 at 00:54:00' do
+      @berlin_clock.set_time(0, 54, 0)
+      expect(@berlin_clock.five_minute_row).to eq '11111111110'
+    end
+
+    it 'is 11111111111 at 00:55:00' do
+      @berlin_clock.set_time(0, 55, 0)
+      expect(@berlin_clock.five_minute_row).to eq '11111111111'
+    end
+  end
+
+  describe 'one-minute row' do
+    it 'is 0000 at 00:00:00' do
+      @berlin_clock.set_time(0, 0, 0)
+      expect(@berlin_clock.one_minute_row).to eq '0000'
+    end
+
+    it 'is 1111 at 00:59:00' do
+      @berlin_clock.set_time(0, 59, 0)
+      expect(@berlin_clock.one_minute_row).to eq '1111'
+    end
+
+    it 'is 0000 at 00:10:00' do
+      @berlin_clock.set_time(0, 10, 0)
+      expect(@berlin_clock.one_minute_row).to eq '0000'
+    end
+
+    it 'is 1000 at 00:11:00' do
+      @berlin_clock.set_time(0, 11, 0)
+      expect(@berlin_clock.one_minute_row).to eq '1000'
+    end
+
+    it 'is 1100 at 00:12:00' do
+      @berlin_clock.set_time(0, 12, 0)
+      expect(@berlin_clock.one_minute_row).to eq '1100'
+    end
+
+    it 'is 1110 at 00:13:00' do
+      @berlin_clock.set_time(0, 13, 0)
+      expect(@berlin_clock.one_minute_row).to eq '1110'
+    end
+
+    it 'is 1111 at 00:14:00' do
+      @berlin_clock.set_time(0, 14, 0)
+      expect(@berlin_clock.one_minute_row).to eq '1111'
     end
   end
 
   describe 'composite row' do
-    it 'is YOOOOOOOOOOOOOOOOOOOOOOO at 00:00:00' do
+    it 'is 100000000000000000000000 at 00:00:00' do
       @berlin_clock.set_time(0, 0, 0)
-      expect(@berlin_clock.composite_row).to eq 'YOOOOOOOOOOOOOOOOOOOOOOO'
+      expect(@berlin_clock.composite_row).to eq '100000000000000000000000'
     end
 
-    it 'is ORRRRRRROYYRYYRYYRYYYYYY at 23:59:59' do
+    it 'is 011111110111111111111111 at 23:59:59' do
       @berlin_clock.set_time(23, 59, 59)
-      expect(@berlin_clock.composite_row).to eq 'ORRRRRRROYYRYYRYYRYYYYYY'
+      expect(@berlin_clock.composite_row).to eq '011111110111111111111111'
     end
   end
 end
