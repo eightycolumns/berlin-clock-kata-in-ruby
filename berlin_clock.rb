@@ -31,8 +31,8 @@ class BerlinClock
 
   private
 
-  def self.row(lights, lights_on)
-    lights_off = lights - lights_on
-    '1' * lights_on + '0' * lights_off
+  def self.row(total_lights, lights_on)
+    lights_off = total_lights - lights_on
+    ('1' * lights_on) + ('0' * lights_off)
   end
 end
