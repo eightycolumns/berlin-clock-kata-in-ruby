@@ -29,7 +29,7 @@ describe 'Berlin Clock' do
     end
 
     it 'is 1100 at hour 12' do
-      expect(BerlinClock.five_hour_row 12 ).to eq '1100'
+      expect(BerlinClock.five_hour_row 12).to eq '1100'
     end
 
     it 'is 1110 at hour 19' do
